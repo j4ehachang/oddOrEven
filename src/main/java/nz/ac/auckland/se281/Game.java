@@ -22,13 +22,14 @@ public class Game {
     MessageCli.ASK_INPUT.printMessage();
 
     String input = Utils.scanner.nextLine();
-    if (!(Utils.isInteger(input))) {
+
+    while ((!Utils.isInteger(input)) || Integer.parseInt(input) < 0 || Integer.parseInt(input) > 5) {
       MessageCli.INVALID_INPUT.printMessage();
-    } else if (Integer.parseInt(input) < 0 || Integer.parseInt(input) > 5) {
-      MessageCli.INVALID_INPUT.printMessage();
-    } else {
-      MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
+      MessageCli.ASK_INPUT.printMessage();
+      input = Utils.scanner.nextLine();
     }
+
+    MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
 
   }
 
