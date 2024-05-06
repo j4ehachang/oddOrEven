@@ -18,6 +18,14 @@ public class Game {
     round ++;
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
     MessageCli.ASK_INPUT.printMessage();
+
+    String input = Utils.scanner.nextLine();
+    if (!(Utils.isInteger(input))) {
+      MessageCli.INVALID_INPUT.printMessage();
+    } else if (Integer.parseInt(input) < 0 || Integer.parseInt(input) > 5) {
+      MessageCli.INVALID_INPUT.printMessage();
+    }
+
   }
 
   public void endGame() {}
