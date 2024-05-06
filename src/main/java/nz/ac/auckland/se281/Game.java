@@ -7,10 +7,12 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   private static int round;
+  private String name;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
     round = 0;
+    this.name = options[0];
 
   }
 
@@ -24,6 +26,8 @@ public class Game {
       MessageCli.INVALID_INPUT.printMessage();
     } else if (Integer.parseInt(input) < 0 || Integer.parseInt(input) > 5) {
       MessageCli.INVALID_INPUT.printMessage();
+    } else {
+      MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
     }
 
   }
