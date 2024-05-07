@@ -12,6 +12,9 @@ public class Game {
   private String name;
   private int sum;
   private int fingersAi;
+  private Choice choice;
+  private Choice result;
+  private String resultString;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -20,6 +23,7 @@ public class Game {
     round = 0;
 
     this.name = options[0];
+    this.choice = choice;
   }
 
   public void play() {
@@ -48,7 +52,20 @@ public class Game {
 
     sum = fingersAi + Integer.parseInt(input);
 
-    MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "ODD", this.name);
+    if (Utils.isEven(sum)) {
+      result = Choice.EVEN;
+      resultString = "EVEN";
+    } else {
+      result = Choice.ODD;
+      resultString = "ODD";
+    }
+
+    if (result == this.choice) {
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, this.name);
+    } else {
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, "HAL-9000");
+    }
+   
   }
 
   public void endGame() {}
