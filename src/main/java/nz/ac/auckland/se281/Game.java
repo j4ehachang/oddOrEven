@@ -1,5 +1,7 @@
 package nz.ac.auckland.se281;
 
+import java.util.Random;
+
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -37,7 +39,7 @@ public class Game {
     }
 
     MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
-    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", input);
+    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(Utils.getRandomNumberRange(0,5)));
   }
 
   public void endGame() {}
