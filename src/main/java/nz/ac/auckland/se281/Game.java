@@ -1,7 +1,5 @@
 package nz.ac.auckland.se281;
 
-import java.util.Random;
-
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
