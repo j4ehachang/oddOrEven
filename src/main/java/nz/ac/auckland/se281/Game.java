@@ -36,8 +36,8 @@ public class Game {
       input = Utils.scanner.nextLine();
     }
 
-    // Print the player and input given when the input is valid
     MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
+    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", input);
   }
 
   public void endGame() {}
