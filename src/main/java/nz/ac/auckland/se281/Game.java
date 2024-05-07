@@ -10,6 +10,8 @@ public class Game {
 
   private static int round;
   private String name;
+  private int sum;
+  private int fingersAi;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -39,7 +41,14 @@ public class Game {
     }
 
     MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
-    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(Utils.getRandomNumberRange(0,5)));
+
+    fingersAi = Utils.getRandomNumberRange(0,5);
+    
+    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(fingersAi));
+
+    sum = fingersAi + Integer.parseInt(input);
+
+    MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "ODD", this.name);
   }
 
   public void endGame() {}
