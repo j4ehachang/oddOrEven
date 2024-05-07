@@ -11,26 +11,33 @@ public class Game {
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
-    round = 0;
-    this.name = options[0];
 
+    // Initiate round number to 0 each time a new game is made
+    round = 0;
+
+    this.name = options[0];
   }
 
   public void play() {
-    round ++;
+    round++;
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
     MessageCli.ASK_INPUT.printMessage();
 
     String input = Utils.scanner.nextLine();
 
-    while ((!Utils.isInteger(input)) || Integer.parseInt(input) < 0 || Integer.parseInt(input) > 5) {
+    // Print out error message whenever the input is invalid
+    while ((!Utils.isInteger(input))
+        || Integer.parseInt(input) < 0
+        || Integer.parseInt(input) > 5) {
       MessageCli.INVALID_INPUT.printMessage();
+
+      // Ask user for new input until the input is valid
       MessageCli.ASK_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
 
+    // Print the player and input given when the input is valid
     MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
-
   }
 
   public void endGame() {}
