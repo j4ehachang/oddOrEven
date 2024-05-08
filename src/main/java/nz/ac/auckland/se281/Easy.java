@@ -4,6 +4,7 @@ public class Easy implements DifficultyLevel{
   
   @Override
   public int selectFingers(){
-    return Utils.getRandomNumberRange(0, 5);
+    ChooseStrategy choosenStrategy = new ChooseStrategy(new Random());
+    return choosenStrategy.process();
   }
 }
