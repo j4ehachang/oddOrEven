@@ -28,6 +28,7 @@ public class Game {
     this.name = options[0];
     this.choice = choice;
     difficultyLevel = DifficultyFactory.createDifficulty(difficulty);
+    roundList.clear();
   }
 
   public void play() {
@@ -69,6 +70,7 @@ public class Game {
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, "HAL-9000");
     }
+
     roundList.add(Integer.parseInt(input));
    
   }
