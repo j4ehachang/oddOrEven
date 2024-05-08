@@ -69,8 +69,6 @@ public class Game {
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, "HAL-9000");
     }
-
-    roundList.add(Integer.parseInt(input));
    
   }
 

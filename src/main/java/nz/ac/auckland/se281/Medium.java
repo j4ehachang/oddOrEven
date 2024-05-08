@@ -8,7 +8,15 @@ public class Medium implements DifficultyLevel{
   
   @Override
   public int selectFingers(List<Integer> roundList, Choice choice){
-    ChooseStrategy choosenStrategy = new ChooseStrategy(new Top(), roundList, choice);
-    return choosenStrategy.process();
+    if (roundList.size() < 3) {
+      ChooseStrategy choosenStrategy = new ChooseStrategy(new Random(), roundList, choice);
+      return choosenStrategy.process();
+
+    } else {
+
+      ChooseStrategy choosenStrategy = new ChooseStrategy(new Top(), roundList, choice);
+      return choosenStrategy.process();
+
+    }
   }
 }
