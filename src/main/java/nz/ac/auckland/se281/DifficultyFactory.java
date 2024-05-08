@@ -15,7 +15,7 @@ public class DifficultyFactory {
         return new Easy();
 
       default:
-        System.err.println("wrong difficulty level");
+        MessageCli.INVALID_DIFFICULTY.printMessage();
         System.exit(0);
     }
     return null;
