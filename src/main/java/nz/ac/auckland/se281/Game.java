@@ -1,5 +1,8 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -14,6 +17,7 @@ public class Game {
   private Choice result;
   private String resultString;
   private DifficultyLevel difficultyLevel;
+  private List<Integer> roundList = new ArrayList<>();
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -46,7 +50,7 @@ public class Game {
 
     MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
 
-    fingersAi = difficultyLevel.selectFingers();
+    fingersAi = difficultyLevel.selectFingers(roundList, this.choice);
     
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(fingersAi));
 
@@ -65,6 +69,8 @@ public class Game {
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, "HAL-9000");
     }
+
+    roundList.add(Integer.parseInt(input));
    
   }
 

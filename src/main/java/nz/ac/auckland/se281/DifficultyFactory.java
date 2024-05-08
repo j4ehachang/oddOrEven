@@ -9,10 +9,10 @@ public class DifficultyFactory {
         return new Easy();
 
       case MEDIUM:
-        return new Easy();
+        return new Medium();
 
       case HARD:
-        return new Easy();
+        return new Hard();
 
       default:
         MessageCli.INVALID_DIFFICULTY.printMessage();
