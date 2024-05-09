@@ -55,7 +55,14 @@ public class Game {
     
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(fingersAi));
 
-    sum = fingersAi + Integer.parseInt(input);
+    getResult(Integer.parseInt(input), fingersAi);
+
+    roundList.add(Integer.parseInt(input));
+   
+  }
+
+  public void getResult(int human, int ai) {
+    sum = human + ai;
 
     if (Utils.isEven(sum)) {
       result = Choice.EVEN;
@@ -71,8 +78,6 @@ public class Game {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, "HAL-9000");
     }
 
-    roundList.add(Integer.parseInt(input));
-   
   }
 
   public void endGame() {}
