@@ -20,6 +20,8 @@ public class Game {
   private List<Integer> roundList = new ArrayList<>();
   private boolean aiWonLastRound;
   private boolean gameRunning = false;
+  private int aiScore;
+  private int humanScore;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -28,6 +30,9 @@ public class Game {
     round = 0;
 
     gameRunning = true;
+
+    aiScore = 0;
+    humanScore = 0;
 
     this.name = options[0];
     this.choice = choice;
@@ -84,9 +89,11 @@ public class Game {
     if (result == this.choice) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, this.name);
       aiWonLastRound = false;
+      humanScore++;
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, "HAL-9000");
       aiWonLastRound = true;
+      aiScore++;
     }
 
   }
