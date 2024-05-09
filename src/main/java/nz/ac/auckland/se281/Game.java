@@ -98,7 +98,18 @@ public class Game {
 
   }
 
-  public void endGame() {}
+  public void endGame() {
+    MessageCli.PRINT_PLAYER_WINS.printMessage(name, Integer.toString(humanScore), Integer.toString(aiScore));
+    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", Integer.toString(aiScore), Integer.toString(humanScore));
+
+    if(aiScore == humanScore) {
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
+    } else if (aiScore < humanScore) {
+      MessageCli.PRINT_END_GAME.printMessage(name);
+    } else {
+      MessageCli.PRINT_END_GAME.printMessage("HAL-9000");
+    }
+  }
 
   public void showStats() {
     if (!gameRunning) {
