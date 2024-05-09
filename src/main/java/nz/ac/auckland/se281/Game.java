@@ -9,7 +9,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 /** This class represents the Game is the main entry point. */
 public class Game {
 
-  private static int round;
+  private int round;
   private String name;
   private int sum;
   private int fingersAi;
