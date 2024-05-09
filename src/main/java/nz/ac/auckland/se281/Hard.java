@@ -1,12 +1,12 @@
 package nz.ac.auckland.se281;
 
 import java.util.List;
-
 import nz.ac.auckland.se281.Main.Choice;
 
 public class Hard implements DifficultyLevel {
+
   @Override
-  public int selectFingers(List<Integer> roundList, Choice choice, Strategy lastStrategy){
+  public int selectFingers(List<Integer> roundList, Choice choice, Boolean aiWonLastRound) {
     if (roundList.size() < 3) {
       ChooseStrategy choosenStrategy = new ChooseStrategy(new Random(), roundList, choice);
       return choosenStrategy.process();
@@ -15,7 +15,6 @@ public class Hard implements DifficultyLevel {
 
       ChooseStrategy choosenStrategy = new ChooseStrategy(new Top(), roundList, choice);
       return choosenStrategy.process();
-
     }
   }
 }

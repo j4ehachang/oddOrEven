@@ -21,6 +21,10 @@ public class ChooseStrategy {
     this.strategy = strategy;
   }
 
+  public Strategy getStrategy(){
+    return this.strategy;
+  }
+
   public int process() {
     return this.strategy.fingerStrategy(this.roundList, this.choice);
   }

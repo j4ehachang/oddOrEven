@@ -7,7 +7,7 @@ import nz.ac.auckland.se281.Main.Choice;
 public class Medium implements DifficultyLevel{
   
   @Override
-  public int selectFingers(List<Integer> roundList, Choice choice, Strategy lastStrategy){
+  public int selectFingers(List<Integer> roundList, Choice choice, Boolean aiWonLastRound){
     if (roundList.size() < 3) {
       ChooseStrategy choosenStrategy = new ChooseStrategy(new Random(), roundList, choice);
       return choosenStrategy.process();
