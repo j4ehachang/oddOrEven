@@ -19,12 +19,15 @@ public class Game {
   private DifficultyLevel difficultyLevel;
   private List<Integer> roundList = new ArrayList<>();
   private boolean aiWonLastRound;
+  private boolean gameRunning = false;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
 
     // Initiate round number to 0 each time a new game is made
     round = 0;
+
+    gameRunning = true;
 
     this.name = options[0];
     this.choice = choice;
@@ -33,6 +36,11 @@ public class Game {
   }
 
   public void play() {
+    if (!gameRunning) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     round++;
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
     MessageCli.ASK_INPUT.printMessage();
