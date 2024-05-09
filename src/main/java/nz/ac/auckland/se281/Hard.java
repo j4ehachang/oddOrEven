@@ -5,30 +5,32 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class Hard implements DifficultyLevel {
   private Strategy lastStrategy;
+  private ChooseStrategy chosenStrategy;
 
   @Override
   public int selectFingers(List<Integer> roundList, Choice choice, Boolean aiWonLastRound) {
+    chosenStrategy = new ChooseStrategy(null, roundList, choice);
 
     if (roundList.size() < 3) {
-      ChooseStrategy choosenStrategy = new ChooseStrategy(new Random(), roundList, choice);
-      lastStrategy = choosenStrategy.getStrategy();
-      return choosenStrategy.process();
+      chosenStrategy.setStrategy(new Random());
+      lastStrategy = chosenStrategy.getStrategy();
+      return chosenStrategy.process();
 
     } else if (aiWonLastRound) {
-      ChooseStrategy choosenStrategy = new ChooseStrategy(lastStrategy, roundList, choice);
-      lastStrategy = choosenStrategy.getStrategy();
-      return choosenStrategy.process();
+      chosenStrategy.setStrategy(lastStrategy);
+      lastStrategy = chosenStrategy.getStrategy();
+      return chosenStrategy.process();
 
     } else {
       if (lastStrategy instanceof Random) {
-        ChooseStrategy choosenStrategy = new ChooseStrategy(new Top(), roundList, choice);
-        lastStrategy = choosenStrategy.getStrategy();
-        return choosenStrategy.process();
+        chosenStrategy.setStrategy(new Top());
+        lastStrategy = chosenStrategy.getStrategy();
+        return chosenStrategy.process();
 
       } else {
-        ChooseStrategy choosenStrategy = new ChooseStrategy(new Random(), roundList, choice);
-        lastStrategy = choosenStrategy.getStrategy();
-        return choosenStrategy.process();
+        chosenStrategy.setStrategy(new Random());
+        lastStrategy = chosenStrategy.getStrategy();
+        return chosenStrategy.process();
       }
     }
   }
