@@ -109,6 +109,8 @@ public class Game {
     } else {
       MessageCli.PRINT_END_GAME.printMessage("HAL-9000");
     }
+
+    gameRunning = false;
   }
 
   public void showStats() {
