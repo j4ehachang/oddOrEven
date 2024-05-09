@@ -116,5 +116,8 @@ public class Game {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
+
+    MessageCli.PRINT_PLAYER_WINS.printMessage(name, Integer.toString(humanScore), Integer.toString(aiScore));
+    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", Integer.toString(aiScore), Integer.toString(humanScore));
   }
 }
