@@ -6,7 +6,7 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class Hard implements DifficultyLevel {
   @Override
-  public int selectFingers(List<Integer> roundList, Choice choice){
+  public int selectFingers(List<Integer> roundList, Choice choice, Strategy lastStrategy){
     if (roundList.size() < 3) {
       ChooseStrategy choosenStrategy = new ChooseStrategy(new Random(), roundList, choice);
       return choosenStrategy.process();

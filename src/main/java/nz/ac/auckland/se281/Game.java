@@ -18,6 +18,7 @@ public class Game {
   private String resultString;
   private DifficultyLevel difficultyLevel;
   private List<Integer> roundList = new ArrayList<>();
+  private Strategy lastStrategy;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -51,7 +52,7 @@ public class Game {
 
     MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
 
-    fingersAi = difficultyLevel.selectFingers(roundList, this.choice);
+    fingersAi = difficultyLevel.selectFingers(roundList, this.choice, lastStrategy);
     
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(fingersAi));
 
