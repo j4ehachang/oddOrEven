@@ -25,13 +25,12 @@ public class Game {
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
 
-    // Initiate round number to 0 each time a new game is made
+    // Whenever a new game is made reset round and scores back to zero
     round = 0;
-
-    gameRunning = true;
-
     aiScore = 0;
     humanScore = 0;
+
+    gameRunning = true;
 
     this.name = options[0];
     this.choice = choice;
@@ -40,12 +39,15 @@ public class Game {
   }
 
   public void play() {
+
+    // Return error message when a game has not been created yet
     if (!gameRunning) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
 
     round++;
+
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
     MessageCli.ASK_INPUT.printMessage();
 
@@ -64,18 +66,21 @@ public class Game {
 
     MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
 
+    // The number of fingers that the ai selects depends on the difficulty chosen
     fingersAi = difficultyLevel.selectFingers(roundList, this.choice, aiWonLastRound);
 
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(fingersAi));
 
     getResult(Integer.parseInt(input), fingersAi);
 
+    // Keep track of the inputs the user has given
     roundList.add(Integer.parseInt(input));
   }
 
   public void getResult(int human, int ai) {
     sum = human + ai;
 
+    // Determine whether the result is even or odd
     if (Utils.isEven(sum)) {
       result = Choice.EVEN;
       resultString = "EVEN";
@@ -84,6 +89,7 @@ public class Game {
       resultString = "ODD";
     }
 
+    // Depending on the result and initial input from user, return the winner of the round
     if (result == this.choice) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), resultString, this.name);
       aiWonLastRound = false;
@@ -96,11 +102,14 @@ public class Game {
   }
 
   public void endGame() {
+
+    // Return the stats of the game for each player
     MessageCli.PRINT_PLAYER_WINS.printMessage(
         name, Integer.toString(humanScore), Integer.toString(aiScore));
     MessageCli.PRINT_PLAYER_WINS.printMessage(
         "HAL-9000", Integer.toString(aiScore), Integer.toString(humanScore));
 
+    // Return the result of the whole game (The winner of the game)
     if (aiScore == humanScore) {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
     } else if (aiScore < humanScore) {
@@ -113,11 +122,13 @@ public class Game {
   }
 
   public void showStats() {
+    // Return error message when a game is not being played
     if (!gameRunning) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
 
+    // Return the stats for each player in the game (How many round they won and lost)
     MessageCli.PRINT_PLAYER_WINS.printMessage(
         name, Integer.toString(humanScore), Integer.toString(aiScore));
     MessageCli.PRINT_PLAYER_WINS.printMessage(
