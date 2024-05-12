@@ -1,7 +1,6 @@
 package nz.ac.auckland.se281;
 
 import java.util.List;
-
 import nz.ac.auckland.se281.Main.Choice;
 
 public class ChooseStrategy {
@@ -9,7 +8,6 @@ public class ChooseStrategy {
   private Strategy strategy;
   private List<Integer> roundList;
   private Choice choice;
-  
 
   public ChooseStrategy(Strategy strategy, List<Integer> roundList, Choice choice) {
     this.strategy = strategy;
@@ -21,7 +19,7 @@ public class ChooseStrategy {
     this.strategy = strategy;
   }
 
-  public Strategy getStrategy(){
+  public Strategy getStrategy() {
     return this.strategy;
   }
 

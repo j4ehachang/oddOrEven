@@ -1,13 +1,12 @@
 package nz.ac.auckland.se281;
 
 import java.util.List;
-
 import nz.ac.auckland.se281.Main.Choice;
 
-public class Medium implements DifficultyLevel{
-  
+public class Medium implements DifficultyLevel {
+
   @Override
-  public int selectFingers(List<Integer> roundList, Choice choice, Boolean aiWonLastRound){
+  public int selectFingers(List<Integer> roundList, Choice choice, Boolean aiWonLastRound) {
     if (roundList.size() < 3) {
       ChooseStrategy choosenStrategy = new ChooseStrategy(new Random(), roundList, choice);
       return choosenStrategy.process();
@@ -16,7 +15,6 @@ public class Medium implements DifficultyLevel{
 
       ChooseStrategy choosenStrategy = new ChooseStrategy(new Top(), roundList, choice);
       return choosenStrategy.process();
-
     }
   }
 }

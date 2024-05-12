@@ -2,7 +2,6 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -66,13 +65,12 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(this.name, input);
 
     fingersAi = difficultyLevel.selectFingers(roundList, this.choice, aiWonLastRound);
-    
+
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(fingersAi));
 
     getResult(Integer.parseInt(input), fingersAi);
 
     roundList.add(Integer.parseInt(input));
-   
   }
 
   public void getResult(int human, int ai) {
@@ -95,14 +93,15 @@ public class Game {
       aiWonLastRound = true;
       aiScore++;
     }
-
   }
 
   public void endGame() {
-    MessageCli.PRINT_PLAYER_WINS.printMessage(name, Integer.toString(humanScore), Integer.toString(aiScore));
-    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", Integer.toString(aiScore), Integer.toString(humanScore));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        name, Integer.toString(humanScore), Integer.toString(aiScore));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        "HAL-9000", Integer.toString(aiScore), Integer.toString(humanScore));
 
-    if(aiScore == humanScore) {
+    if (aiScore == humanScore) {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
     } else if (aiScore < humanScore) {
       MessageCli.PRINT_END_GAME.printMessage(name);
@@ -119,7 +118,9 @@ public class Game {
       return;
     }
 
-    MessageCli.PRINT_PLAYER_WINS.printMessage(name, Integer.toString(humanScore), Integer.toString(aiScore));
-    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", Integer.toString(aiScore), Integer.toString(humanScore));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        name, Integer.toString(humanScore), Integer.toString(aiScore));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        "HAL-9000", Integer.toString(aiScore), Integer.toString(humanScore));
   }
 }
