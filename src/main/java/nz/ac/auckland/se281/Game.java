@@ -23,11 +23,11 @@ public class Game {
   private int humanScore;
 
   /**
-   * This method creates a new game
+   * This method creates a new game.
    *
-   * @param difficulty The difficulty that the user wants to play the game in
-   * @param choice User's choice for odd or even
-   * @param options A string array containing
+   * @param difficulty The difficulty that the user wants to play the game in.
+   * @param choice User's choice for odd or even.
+   * @param options A string array containing.
    */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -45,7 +45,7 @@ public class Game {
     roundList.clear();
   }
 
-  /** Run one round of the game */
+  /** Run one round of the game. */
   public void play() {
 
     // Return error message when a game has not been created yet
@@ -86,10 +86,10 @@ public class Game {
   }
 
   /**
-   * Get the winner of the round
+   * Get the winner of the round.
    *
-   * @param human The integer showing the input from user
-   * @param ai The integer showing the number of fingers selected from the AI
+   * @param human The integer showing the input from user.
+   * @param ai The integer showing the number of fingers selected from the AI.
    */
   public void getResult(int human, int ai) {
     sum = human + ai;
@@ -115,7 +115,7 @@ public class Game {
     }
   }
 
-  /** End the game by showing stats and showing who won */
+  /** End the game by showing stats and showing who won. */
   public void endGame() {
 
     // Return the stats of the game for each player
@@ -136,7 +136,7 @@ public class Game {
     gameRunning = false;
   }
 
-  /** Show many rounds each player has won and lost */
+  /** Show many rounds each player has won and lost. */
   public void showStats() {
     // Return error message when a game is not being played
     if (!gameRunning) {

@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
-/** This class represents the medium level of the game */
+/** This class represents the medium level of the game. */
 public class MediumLevel implements DifficultyLevel {
 
   @Override

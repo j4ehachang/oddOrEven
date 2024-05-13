@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
-/** This class represnts the hardlevel of the game */
+/** This class represnts the hardlevel of the game. */
 public class HardLevel implements DifficultyLevel {
   private Strategy lastStrategy;
   private ChooseStrategy chosenStrategy;

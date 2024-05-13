@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
-/** This class represents the Top Strategy used to select number of fingers */
+/** This class represents the Top Strategy used to select number of fingers. */
 public class Top implements Strategy {
   private int evenCount = 0;
   private int oddCount = 0;
