@@ -3,6 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/** This class represents the Easy level of the game */
 public class EasyLevel implements DifficultyLevel {
 
   @Override
